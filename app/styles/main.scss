@@ -1,0 +1,147 @@
+$icon-font-path: '../fonts/';
+
+@font-face {
+  font-family: 'Helvetica Neue BC';
+  src: url('../fonts/HelveticaNeueLTStd-BlkCn.eot');
+  src: url('../fonts/HelveticaNeueLTStd-BlkCn.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueLTStd-BlkCn.woff') format('woff'),
+    url('../fonts/HelveticaNeueLTStd-BlkCn.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+// bower:scss
+@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+// endbower
+
+$redPS : #e20040;
+
+// rem font mixin
+@mixin rem2px($property, $sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+// center vertically and/or horizontally an absolute positioned element
+@mixin center($xy:xy) {
+  position: absolute;
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    @include transform(translateX(-50%) translateY(-50%));
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    @include transform(translateX(-50%));
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    @include transform(translateY(-50%));
+  }
+}
+// border radius
+@mixin border-radius($radius:.25em) {
+  border-radius: $radius;
+}
+
+/* Base css */
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html {
+  font-size: 62.5%;
+}
+*, *:after, *:before {
+  @include box-sizing(border-box);
+}
+// -webkit-transition: all 0.25s ease-in-out 0s;
+// -o-transition: all 0.25s ease-in-out 0s;
+// transition: all 0.25s ease-in-out 0s;
+* { 
+  margin:0;
+  padding:0;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+}
+body, html {
+  height: 100%;
+}
+body {
+  
+  background-image: url('../images/bg-3.jpg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.alert-ie {
+  background-color: #e20040;
+  color: #fff;
+  padding: 15px;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+  a {
+    color: #fff;
+    font-weight: bold;
+    text-decoration: underline;
+    &:hover {
+      color: #fff;    
+    }
+  }
+}
+.header {
+  h1 {
+    background: #383b40;
+    color: #e4f1fa;
+    margin: 5% 0;
+    padding: 10px;
+    text-transform: uppercase;
+    font-family: 'Helvetica Neue BC', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    text-align: center;
+  }
+}
+.content {
+  @include center(xy);
+}
+.countTweet {
+  background-color: white;
+  padding: 25px;
+  position: relative;
+  @include border-radius(4px);
+  border: 1px solid #c0c0c0;
+  form {
+    width:600px;
+    textarea{
+      width: 550px;
+      height: 80px;
+      border: 1px solid #c0c0c0;
+      padding: 3px;
+      color: #555;
+      font: 16px Arial, Helvetica, sans-serif;
+    }
+    form div{position:relative; margin:1em 0;}
+    .counter{
+      position:absolute;
+      right: 20px;
+      top: 20px;
+      font-size: 25px;
+      font-weight: bold;
+      color: #ccc;
+      &.warning{color:#600;}
+      &.exceeded{color:#e00;}
+    }
+  }
+}
+.footer {
+  text-align: center;
+  color: #383b40;
+  font-size: 20px;
+  padding-top: 19px;
+}

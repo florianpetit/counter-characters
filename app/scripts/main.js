@@ -8,7 +8,7 @@
 
 		// default configuration properties
 		var defaults = {
-			allowed: 18,
+			allowed: 19,
 			warning: 10,
 			css: 'counter',
 			counterElement: 'span',
